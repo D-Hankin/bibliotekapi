@@ -1,11 +1,11 @@
 package com.bibliotekapi.bibliotekapi.service;
 
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -48,6 +48,27 @@ public class BookService {
     public void addBook(Book newBook) {
         
         bookList.add(newBook);
+
+    }
+
+    public void loanBook(Book loanBook) {
+        
+        Optional<Book> optionalBook = bookList.stream()
+        .filter(book -> loanBook.getIsbn().equals(book.getIsbn()))
+        .findFirst();
+        
+        if (optionalBook.isPresent()) {
+
+            Book book = optionalBook.get();
+            
+            if (book.isAvailability()) {
+                book.setAvailability(false);
+                System.out.println("Success!" + book.isAvailability());
+            } else {
+                book.setAvailability(true);
+            }
+        }
+        
         
     }
 }

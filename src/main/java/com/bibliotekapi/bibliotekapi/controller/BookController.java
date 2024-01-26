@@ -3,6 +3,7 @@ package com.bibliotekapi.bibliotekapi.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,12 +32,21 @@ public class BookController {
         return bookService.getBook(isbn);
     }
 
-    @PostMapping("/add-book")
+    @PostMapping("/book")
     public List<Book> addBook(@RequestBody Book newBook) {
 
         bookService.addBook(newBook);
         System.out.println("newBook");
 
+        return bookService.getBooks();
+    }
+
+    @PatchMapping("/book")
+    public List<Book> loanBook(@RequestBody Book loanBook) {
+
+        bookService.loanBook(loanBook);
+        System.out.println("Loan");
+        
         return bookService.getBooks();
     }
     
