@@ -7,10 +7,10 @@ public class Book {
     private String author;
     private Date publicationDate;
     private String genre;
-    private Integer isbn;
+    private String isbn;
     private boolean availability;
     
-    public Book(String title, String author, Date publicationDate, String genre, Integer isbn, boolean availability) {
+    public Book(String title, String author, Date publicationDate, String genre, String isbn, boolean availability) {
         this.title = title;
         this.author = author;
         this.publicationDate = publicationDate;
@@ -51,11 +51,11 @@ public class Book {
         this.genre = genre;
     }
 
-    public Integer getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(Integer isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 

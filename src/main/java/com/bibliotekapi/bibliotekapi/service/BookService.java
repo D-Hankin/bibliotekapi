@@ -19,14 +19,27 @@ public class BookService {
     public BookService() {
         bookList = new ArrayList<>();
 
-        try (Reader reader = new FileReader("mockData/mockBooks.json")) {
+        try (Reader reader = new FileReader("static/mockBooks.json")) {
 
             Book[] bookArray = new Gson().fromJson(reader, Book[].class);
             bookList.addAll(Arrays.asList(bookArray));
             System.out.println(bookList);
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public Book getBook(String isbn) {
+        
+        return bookList.stream()
+        .filter(book -> isbn.equals(book.getIsbn()))
+        .findFirst()
+        .orElse(null);
+    }
+
+    public List<Book> getBooks() {
+        
+        return bookList;
     }
 }
