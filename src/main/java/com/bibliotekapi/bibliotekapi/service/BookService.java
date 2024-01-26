@@ -1,6 +1,7 @@
 package com.bibliotekapi.bibliotekapi.service;
 
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,12 +20,13 @@ public class BookService {
     public BookService() {
         bookList = new ArrayList<>();
 
-        try (Reader reader = new FileReader("static/mockBooks.json")) {
+        try (Reader reader = new InputStreamReader(
+            getClass().getClassLoader().getResourceAsStream("static/mockBooks.json")
+        )) {
 
             Book[] bookArray = new Gson().fromJson(reader, Book[].class);
             bookList.addAll(Arrays.asList(bookArray));
-            System.out.println(bookList);
-            
+
         } catch (Exception e) {
             System.out.println("NO!");;
         }
