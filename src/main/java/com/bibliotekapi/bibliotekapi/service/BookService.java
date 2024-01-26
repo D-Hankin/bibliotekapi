@@ -26,7 +26,7 @@ public class BookService {
             System.out.println(bookList);
             
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("NO!");;
         }
     }
 
