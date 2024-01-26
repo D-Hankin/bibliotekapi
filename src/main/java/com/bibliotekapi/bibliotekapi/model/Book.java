@@ -1,19 +1,17 @@
 package com.bibliotekapi.bibliotekapi.model;
 
-import java.util.Date;
-
 public class Book {
     private String title;
     private String author;
-    private String publicationDate;
+    private String publication_date;
     private String genre;
     private String isbn;
     private boolean availability;
     
-    public Book(String title, String author, String publicationDate, String genre, String isbn, boolean availability) {
+    public Book(String title, String author, String publication_date, String genre, String isbn, boolean availability) {
         this.title = title;
         this.author = author;
-        this.publicationDate = publicationDate;
+        this.publication_date = publication_date;
         this.genre = genre;
         this.isbn = isbn;
         this.availability = availability;
@@ -36,11 +34,11 @@ public class Book {
     }
 
     public String getPublicationDate() {
-        return publicationDate;
+        return publication_date;
     }
 
-    public void setPublicationDate(String publicationDate) {
-        this.publicationDate = publicationDate;
+    public void setPublicationDate(String publication_date) {
+        this.publication_date = publication_date;
     }
 
     public String getGenre() {

@@ -44,4 +44,10 @@ public class BookService {
         
         return bookList;
     }
+
+    public void addBook(Book newBook) {
+        
+        bookList.add(newBook);
+        
+    }
 }
